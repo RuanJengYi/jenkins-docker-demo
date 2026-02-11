@@ -9,10 +9,11 @@ pipeline {
         }
         stage('2. Build Docker Image') {
             steps {
-                // 建立一個簡單的 Image
-                sh 'echo "FROM python:3.9-slim" > Dockerfile'
-                sh 'echo "CMD [\"python\", \"-c\", \"print(\'Hello from GitHub Jenkinsfile!\')\"]" >> Dockerfile'
-                sh 'docker build -t my-github-test .'
+                sh '''
+                    echo "FROM python:3.9-slim" > Dockerfile
+                    echo "CMD python -c, \\"print('Hello from GitHub Jenkinsfile!')\\"" >> Dockerfile
+                    docker build -t my-github-test .
+                '''
             }
         }
         stage('3. Run Test') {
