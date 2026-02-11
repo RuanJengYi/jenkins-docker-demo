@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh '''
                     echo "FROM python:3.9-slim" > Dockerfile
-                    echo "CMD python -c, \\"print('Hello from GitHub Jenkinsfile!')\\"" >> Dockerfile
+                    echo "CMD python -c \\"print('Hello from GitHub Jenkinsfile!')\\"" >> Dockerfile
                     docker build -t my-github-test .
                 '''
             }
